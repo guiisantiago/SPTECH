@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Nome:</span>
+    <input id="i_nome" type="text">
+
+    <span>Ki guerreiro:</span>
+    <input id="i_ki" type="text">
+
+    <button onclick="resultado()">Ver ki em cada forma</button>
+</body>
+</html>
+
+<script>
+    function resultado() {
+        alert(" O Ki do guerreiro " + i_nome.value + " na sua forma Super Sayajin é de " + (i_ki.value * 50));
+        alert(" O Ki do guerreiro " + i_nome.value + " na sua forma Super Sayajin é de " + (i_ki.value * 100));
+    }
+</script>

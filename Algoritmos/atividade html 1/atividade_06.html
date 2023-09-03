@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Valor pizza:</span>
+    <input id="i_valor" type="text">
+
+    <span>Quantidade de amigos:</span>
+    <input id="i_quantidade" type="text">
+
+    <button onclick="resultado()">LovePizza</button>
+</body>
+</html>
+
+<script>
+    function resultado() {
+        alert("Cada um dos " + i_quantidade.value + " amigos vai pagar R$" + (i_valor.value / i_quantidade.value) );
+    }
+</script>

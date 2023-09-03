@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Idade:</span>
+    <input id="i_idade" type="text">
+
+    <button onclick="homem()">Aposentadoria Homem</button>
+    <button onclick="mulher()">Aposentadoria Mulher</button>
+</body>
+</html>
+
+<script>
+    
+    function homem() {
+        alert("O tempo que falta para se aposentar é de " + (70 - i_idade.value) + " anos ");
+    }
+
+    function mulher() {
+        alert("O tempo que falta para se aposentar é de " + (60 - i_idade.value) + " anos");
+    }
+</script>
