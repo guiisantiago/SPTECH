@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem estar</title>
+</head>
+<body>
+    <h1>Calculadora IMC</h1>
+
+    <span>Peso</span>
+    <input id="i_peso">
+
+    <span>Altura</span>
+    <input id="i_altura">
+
+    <button onclick="resultado()">
+        Calcule
+    </button>
+    <div id="div_calcular">
+    </div>
+</body>
+</html>
+<script>
+    function resultado() {
+        var peso = i_peso.value
+        var altura = i_altura.value
+        var calculo = Number(peso / altura **2)
+        div_calcular.innerHTML = `
+            <br> ${calculo}Kg
+        `;
+    }
+</script>

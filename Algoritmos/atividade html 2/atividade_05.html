@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte</title>
+</head>
+<body>
+    <h1>Caculadora de Passagem</h1>
+    
+    <span>Valor da passagem:</span>
+    <input id="i_valor">
+
+    <span>Quantidade de viagens mensal:</span>
+    <input id="i_quantidade">
+
+    <span>Distância do trabalho até sua residência:</span>
+    <input id="i_distancia">
+
+    <button onclick="mensagem()">Calcular VT
+    </button>
+
+    <div id="div_resultado">
+    </div>
+</body>
+</html>
+<script>
+    function mensagem() {
+        var passagem = Number(i_valor.values);
+        var mensal = Number(i_quantidade.value);
+        var casa = Number(i_distancia.value);
+        var soma = Number(passagem * mensal)
+        div_resultado.innerHTML = `
+            Você vai gastar R$ ${soma} por mês com transporte.
+            `;
+    }
+</script>

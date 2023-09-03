@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball</title>
+</head>
+<body>
+    <H1>Poderes</H1>
+    
+    <span>Ki base do guerreiro Sayajin</span>
+    <input id="i_ki"> <br>
+
+    <br>Transformar em:
+
+    <button id="i_b1" onclick="SSJ()">
+        SSJ
+    </button>
+
+    <button onclick="SSJ2()">
+        SSJ2
+    </button>
+
+    <button onclick="ssj3()">
+        SSJ3
+    </button>
+    <div id="div_transformar"></div>
+</body>
+</html>
+<script>
+    function SSJ() {
+        var  k1 = Number(i_ki.value * 50);
+        div_transformar.innerHTML = `
+            Após se transformar em <u>SSJ</u> , o ki desse Sayajin passa
+            a ser de <u>${k1}</u>
+        `;
+    }
+    function SSJ2() {
+        var k2 = Number(i_ki.value * 100);
+        div_transformar.innerHTML = `
+            Após se transformar em <u>SSJ2</u>, o ki desse Sayajin passa a ser 
+            de <u>${k2}</u>
+        `;
+    }
+    function ssj3(){
+        var k3 = Number(i_ki.value * 200)
+        div_transformar.innerHTML = `
+        Após se transformar em <u>SSJ3</u>, o ki desse Sayajin passa a ser 
+        de <u>${k3}</u>
+        `;
+    } 
+    
+</script>

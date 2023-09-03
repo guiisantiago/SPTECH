@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+</head>
+<body>
+    <h1>Cardápio</h1>
+    
+    <span>Sabor pizza:</span>
+    <input id="i_sabor" type="text"> 
+
+    <span>Preço pizza:</span>
+    <input id="i_preco">
+
+    <span>Quantidade de amigos:</span>
+    <input id="i_qtdamigos">
+
+    <button onclick="valor()">Ver valor por amigo
+    </button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function valor() {
+        var spizza = i_sabor.value;
+        var ppizza = Number(i_preco.value);
+        var qpizza = Number(i_qtdamigos.value);
+        var calculo = Number(ppizza / qpizza);
+        div_resultado.innerHTML = `
+            Cada amigo vai colaborar com R$${calculo + 0.1} para a pizza de ${spizza}.
+        `;
+    }
+</script>

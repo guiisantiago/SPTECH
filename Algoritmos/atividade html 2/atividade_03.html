@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+    Entre com um número, para ver sua tabuada:
+    <input id="input_tabuada">
+    <button onclick="mostrarTabuada()">
+        Ver tabuada
+    </button>
+    <div id="div_tabuada">
+    </div>
+</body>
+</html>
+<script>
+    function mostrarTabuada() {
+        var valorTabuada = Number(input_tabuada.value);
+        div_tabuada.innerHTML = `
+            ${valorTabuada}x1 = ${valorTabuada * 1}<br>
+            ${valorTabuada}x2 = ${valorTabuada * 2}<br>
+            ${valorTabuada}x3 = ${valorTabuada * 3}<br>
+            ${valorTabuada}x4 = ${valorTabuada * 4}<br>
+            ${valorTabuada}x5 = ${valorTabuada * 5}<br>
+            ${valorTabuada}x6 = ${valorTabuada * 6}<br>
+            ${valorTabuada}x7 = ${valorTabuada * 7}<br>
+            ${valorTabuada}x8 = ${valorTabuada * 8}<br>
+            ${valorTabuada}x9 = ${valorTabuada * 9}<br>
+        `;
+    }
+</script>
