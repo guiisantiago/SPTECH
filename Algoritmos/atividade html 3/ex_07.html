@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    Saldo da conta:
+    <input id="input_conta">
+
+    Valor do débito:
+    <input id="input_debito">
+
+    <button onclick="clicar()">
+        Analisar conta
+    </button>
+
+    <div id="div_calcular">
+    </div>
+</body>
+
+</html>
+<script>
+    function clicar() {
+        var saldo = Number(input_conta.value);
+        var valor = Number(input_debito.value);
+        var total = Number(saldo - valor);
+        
+        if (total > 0) {
+            div_calcular.innerHTML = `
+                o saldo atual da conta corrente é R$${total}`;
+        }
+            
+        if (total <= 0) {
+            div_calcular.innerHTML += `
+                <b> 
+                    <span style="color: red;">o saldo atual da conta corrente é R$${total}</span>
+                </b>`
+        }
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nota 1:
+    <input id="input_n1">
+    Nota 2:
+    <input id="input_n2">
+    Nota 3:
+    <input id="input_n3">
+    <button onclick="analisar()">
+        Analisar desempenho
+    </button>
+    <div id="div_calcular">
+    </div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var nota1 = Number(input_n1.value);
+        var nota2 = Number(input_n2.value);
+        var nota3 = Number(input_n3.value);
+        var resultado = ((nota1 + nota2 + nota3) / 3);
+        div_calcular.innerHTML = `
+            Sua média foi de ${resultado}`
+        if (resultado >=9.4) {
+            alert (`Parabéns, você é fora de série`)
+        };
+    }
+</script>

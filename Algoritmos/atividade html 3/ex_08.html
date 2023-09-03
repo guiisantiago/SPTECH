@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    Quantidade de homens: <input id="input_man">
+    Quantidade de mulheres: <input id="input_girl">
+
+    <button onclick="exibir()">
+        Analisar Peso
+    </button>
+    <div id="div_calcular"></div>
+</body>
+</html>
+<script>
+    function exibir() {
+        var homem = Number(input_man.value * 80);
+        var mulher = Number(input_girl.value * 60);
+        var calculo = Number (homem + mulher);
+        div_calcular.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${calculo}kg <br>`
+        
+        if (calculo > 800) {
+            div_calcular.innerHTML += `
+            <span style="color: blue;">
+                Será necessário descer alguém para que o elevador se movimente
+            </span>`
+        };
+    }
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+<body>
+    Peso total:
+    <input id="input_total">
+
+    <button onclick="calcular()">
+        Ligar elevador
+    </button>
+</body>
+</html>
+<script>
+    function calcular() {
+        var peso =  Number(input_total.value);
+
+        if (peso < 500) {
+            alert(`Elevador vai se mover`);
+        }
+
+        if (peso >= 500) {
+            alert(`Alguém precisa descer do elevador`);
+        }
+    }
+</script>

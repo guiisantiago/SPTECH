@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    Última série assistiu:
+    <input id="input_serie">
+
+    Total de episódios assistido:
+    <input id="input_episodios">
+
+    <button onclick="mostrar()">
+        Verificar nível:
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var seriado = input_serie.value;
+        var ep = Number(input_episodios.value);
+        var eptotal = Number(ep * 22);
+        div_exibir.innerHTML = `
+        Vejo que você gosta da série ${seriado}`;
+
+        if (eptotal > 30) {
+            div_exibir.innerHTML += `
+            <br> Uau, você realmente gosta dessa série!`
+        }
+    }
+</script>
