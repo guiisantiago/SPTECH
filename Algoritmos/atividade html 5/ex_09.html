@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+<body>
+    Meta de economia:
+    <input id="input_meta">
+
+    Valor guardado em conta:
+    <input id="input_guardado">
+
+    <button onclick="exibir()">
+        Analisar economia
+    </button>
+
+    <div id="div_calcular">
+    </div>
+</body>
+</html>
+<script>
+    function exibir() {
+        var n1 = Number(input_meta.value);
+        var n2 = Number(input_guardado.value);
+        var n3 = Number(n1 - n2);
+        var ultrapassada = Number(n2 - n1);
+
+        if (n2 == n1) {
+            div_calcular.innerHTML = `Parabéns, meta alcançada!`
+        }   
+
+        if (n2 > n1) {
+            div_calcular.innerHTML = `
+            Meta ultrapassada em R$${ultrapassada}`
+        } else {
+            div_calcular.innerHTML = `
+            Força! Ainda em busca da meta! Falta R$${n3}`
+        }
+    }
+</script>

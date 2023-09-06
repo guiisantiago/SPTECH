@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade homem:
+    <input id="input_homem">
+
+    Quantidade mulher:
+    <input id="input_mulher">
+
+    <button onclick="mostrar()">
+        Ligar elevador
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var man = Number(input_homem.value);
+        var girl = Number(input_mulher.value);
+        var rman = Number(man * 90);
+        var rgirl = Number(girl * 70);
+        var resultado = Number(rman + rgirl);
+        var peso = Number(rman + rgirl) - 500;
+
+        if (resultado <= 500) {
+            div_exibir.innerHTML = `
+            <span style="color: green;">
+                Elevador vai se mover, pois está com ${resultado}Kg
+            </span>`;
+        } else {
+            div_exibir.innerHTML = `
+            <span style="color: red;">
+                Alguém precisa descer. Precisa perder ${peso}Kg para mover o elevador 
+            </span>`;
+        }
+    }
+</script>

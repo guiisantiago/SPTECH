@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+    Quantidade de chocolates:
+    <input id="input_quantidade">
+
+    <button onclick="mostrar()">
+        Comprar
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var qntd = Number(input_quantidade.value);
+        var choco = Number (qntd * 3);
+        var desconto = Number(qntd * 2.50);
+
+        if (qntd >= 12) {
+            div_exibir.innerHTML = `O valor da sua compra foi de R$${desconto}`;
+        } else {
+            div_exibir.innerHTML = `O valor da sua compra foi de R$${choco}`;
+        }
+    }
+</script>

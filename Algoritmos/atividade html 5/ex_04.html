@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    Frequência do aluno:
+    <input id="input_aluno">
+
+    <button onclick="clicar()">
+        Analisar frequência
+    </button>
+
+    <div id="div_exibir">
+    </div>
+    
+    
+</body>
+</html>
+<script>
+    function clicar() {
+        var frequencia = Number(input_aluno.value)
+        if (frequencia >= 50) {
+            div_exibir.innerHTML = '<img src="https://static.quizur.com/i/b/5747891e74cc93.67717206pessoas-inteligentes.jpg">'; 
+        } else {
+            div_exibir.innerHTML = '<img src="https://www.eurodicas.com.br/wp-content/uploads/2019/01/quanto-tempo-posso-ficar-na-europa-como-turista.jpg">'
+                
+        }
+    }
+</script>
