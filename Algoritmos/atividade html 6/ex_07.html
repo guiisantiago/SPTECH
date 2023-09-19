@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    Inserir o valor economizado:
+    <input id="input_valor">
+
+    <button onclick="calcular()">
+        Poder de compra
+    </button>
+
+    <div id="div_mostrar">
+    </div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var valor = Number(input_valor.value);
+
+        if (valor <= 0) {
+            div_mostrar.innerHTML = `
+                Nada de compras &#129314`
+        } else if (valor <= 100) {
+            div_mostrar.innerHTML = `
+                Viajem de ida e volta pra Praia Grande`
+        } else if (valor < 4000) {
+            div_mostrar.innerHTML = `
+                Viajem de ida e volta pra Praia Grande <br>Uma boa moto usada`
+        } else {
+            div_mostrar.innerHTML = `
+                Viajem de ida e volta pra Praia Grande <br>Uma boa moto usada <br> Mais lguma bobagem`
+        }
+    }
+</script>

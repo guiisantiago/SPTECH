@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    Quantos pães consome por dia
+    <input id="input_ppp">
+    
+    Quantos pacotes de bolacha consome por dia:
+    <input id="input_bolacha">
+
+    Quantos copos de achocolatado consome por dia:
+    <input id="input_copos">
+
+    <button onclick="analisar()">
+        Verificar calorias
+    </button>
+
+    <div id="div_calcular">
+    </div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var pao = Number(input_ppp.value);
+        var bolacha = Number(input_bolacha.value);
+        var achocolatado = Number(input_copos.value);
+        var p = Number(pao * 50);
+        var b = Number(bolacha * 80);
+        var c = Number(achocolatado * 70);
+        var resultado = Number(p + b + c);
+
+        if (resultado < 200) {
+            div_calcular.innerHTML = `
+            Parabéns, vai ficar em forma!`
+        } else if (resultado <= 400) {
+            div_calcular.innerHTML = `
+                Cuidado, vai ficar menos saudável`
+        } else {
+            div_calcular.innerHTML = `
+                Aleta crítico de saúde!!!`
+        }
+    }
+</script>

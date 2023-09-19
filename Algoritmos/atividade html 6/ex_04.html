@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    
+    Insira o peso da criança:
+    <input id="input_peso">
+
+    <button onclick="analisar()">
+        Analisar
+    </button>
+
+    <div id="div_mostrar">
+    </div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var peso = Number(input_peso.value);
+
+        if (peso <= 13.5) {
+            div_mostrar.innerHTML = `
+            Abaixo do peso`
+        } else if (peso > 21.2) {
+            div_mostrar.innerHTML = `
+                Acima do peso`
+        } else if (peso <= 21.2) {
+            div_mostrar.innerHTML = `
+               Peso na média `
+        }  if (peso == 18.3) {
+            div_mostrar.innerHTML = `
+               Peso perfeito `
+        }
+    }
+</script>
