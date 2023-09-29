@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <div><button onclick="esquerda()">
+        Mover para Esquerda
+    </button>
+
+    <button onclick="direita()">
+        Mover para Direita
+    </button>
+
+    <input id="inputmovimentar"> </div>
+    
+    
+        <img src="https://static.wikia.nocookie.net/simpsons/images/f/fa/Skateboard.gif/revision/latest?cb=20130925152244" alt="" id="img_imagem" style="margin-left: 0px; margin-right: 0px;">
+</body>
+</html>
+<script>
+    var plx = 0;
+    
+    function esquerda() {
+        var valor = Number(inputmovimentar.value);
+       plx -= valor
+        img_imagem.style.margin = `0px 0px 0px ${plx}px`
+    }
+
+    function direita() {
+        var valor = Number(inputmovimentar.value)
+        plx += valor
+        img_imagem.style.margin =`0px 0px 0px ${plx}px`
+    }
+</script>

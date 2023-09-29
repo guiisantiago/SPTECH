@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_paOhFhxjKG9n7k7qmHTwFKYD4uR8I4oMQ&usqp=CAU" alt="" style="width: 300px;" id="img_imagem">
+
+    <button onclick="aumentar()">
+        Aumentar a largura
+    </button>
+
+    <button onclick="reduzir()">
+        Redeuzir largura
+    </button>
+</body>
+</html>
+<script>
+    var largura = 300
+
+    function aumentar() {
+        largura += 10
+        img_imagem.style.width = largura + "px";
+    }
+
+
+    function reduzir() {
+        largura -= 10
+        img_imagem.style.width = largura + "px";
+    }
+</script>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    Informe o método de pagamento:
+    <input id="input_pagamento" type="text">
+
+    <button onclick="analisar()">
+        Analisar compra
+    </button>
+
+    <div id="div_mostrar">
+    </div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var pagamento = input_pagamento.value;
+
+        if (pagamento == "dinheiro" || pagamento == "débito") {
+            div_mostrar.innerHTML = `Você terá que pagar a vista`
+        }
+        if (pagamento == "crédito" || pagamento == "boleto") {
+            div_mostrar.innerHTML = `Pagamento poderá ser parcelado`
+        }
+    }
+</script>

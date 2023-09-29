@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    Temperatura atual
+    <input id="input_temp">
+
+    <button onclick="situação()">
+        Ver Situação
+    </button>
+</body>
+</html>
+<script>
+    function situação() {
+        var temperatura = Number(input_temp.value);
+
+        if (temperatura >=21 && temperatura<=24) {
+            alert(`Temperatura confortável`)
+        } else {
+            alert(`Temperatura DESCONFORTÁVEL`)
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+
+<body>
+
+    Quantas passagens gostaria de adquirir:
+    <input id="input_passagens">
+
+    <button onclick="clicar()">
+        Comprar
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+
+</html>
+<script>
+    function clicar() {
+        var passagem = Number(input_passagens.value);
+        var valor = Number(passagem * 4.40);
+        var desconto1 = Number(valor - (valor * 0.03));
+        var desconto2 = Number(valor - (valor * 0.05));
+        var desconto3 = Number(valor - (valor * 0.07));
+
+        if (passagem >= 8 && passagem <= 19) {
+            div_exibir.innerHTML = `Total a pagar: R$${desconto1}`
+        }
+        else if (passagem >= 20 && passagem <= 49) {
+            div_exibir.innerHTML = `Total a pagar: R$${desconto2}`
+        }
+        else if (passagem == 50) {
+            div_exibir.innerHTML = `Total a pagar: R$${desconto3}`
+        }
+        else {
+            alert(`Quantidade inválida para o Fidelidade!`)
+        }
+    }
+</script>

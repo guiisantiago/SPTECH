@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+    <div style="color: blue;">
+        Total guardado no cofrinho: R$ <u><span  id="span_total">0</span></u>
+
+        <br>Depósitos efetuados: <u><span id="span_deposito">0</span></u>
+
+        <br>Retiradas efetuadas: <u><span id="span_retiradas">0</span></u>
+    </div>
+
+    Valor: <input id="id_valor">
+    
+    <button onclick="depositarcinco()">
+        Depositar 0,50
+    </button>
+
+    <button onclick="depositardois()">
+        Depositar 2,00
+    </button>
+
+    <button onclick="retirarcinco()">
+        Retirar 0,50
+    </button>
+
+    <button onclick="retirar()">
+        Retirar
+    </button>
+
+</body>
+</html>
+<script>
+    var total = 0
+    var depositos = 0
+    var retiradas = 0
+
+    function depositarcinco() {
+        total += 0.50
+        depositos += 1
+        span_total.innerHTML = total
+        span_deposito.innerHTML = depositos
+    }
+
+    function depositardois() {
+        total += 2
+        depositos += 1
+        span_total.innerHTML = total
+        span_deposito.innerHTML = depositos
+    }
+
+    function retirarcinco() {
+        total -= 0.50
+        retiradas += 1
+        span_total.innerHTML = total
+        span_retiradas.innerHTML = retiradas
+    }
+
+    function retirar() {
+        var vlor = Number(id_valor.value);
+        total -= vlor;
+        span_total.innerHTML = total
+    }
+</script>

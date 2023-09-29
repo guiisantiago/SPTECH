@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+<body>
+    Informe sua renda individual:
+    <input id="input_rindiv">
+
+    Informe sua renda familiar:
+    <input id="input_rfamily">
+
+    <button onclick="analisar()">
+        Terei o benefício
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var rindividual = Number(input_rindiv.value);
+        var rfamiliar = Number(input_rfamily.value);
+
+        if (rindividual <= 2000 || rfamiliar <= 3000) {
+            div_exibir.innerHTML = `Você terá direito ao auxílio`
+        } 
+        else {
+            div_exibir.innerHTML = `Sem direito ao auxílio`
+        }
+    }
+</script>

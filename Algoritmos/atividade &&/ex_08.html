@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    Login:
+    <input id="input_login" type="text">
+
+    Senha:
+    <input id="input_pass" type="password">
+
+    Código de segurança:
+    <input id="input_seguranca">
+
+    <button onclick="verificar()">
+        Entrar
+    </button>
+</body>
+</html>
+<script>
+    function verificar() {
+        var login = input_login.value;
+        var senha = input_pass.value;
+        var cod = input_seguranca.value;
+
+        if (login == "SPTech" && senha == "digital" && cod == 123) {
+            alert(`Usuário autenticado com sucesso`)
+        } else {
+            alert(`Falha na autenticação`)
+        }
+    }
+</script>
