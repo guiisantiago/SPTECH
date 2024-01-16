@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="executar()">CLicar</button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    function executar() {
+        contador = 1;
+
+        while(contador <= 12) {
+            if(contador % 2 == 0) {
+                div_exibir.innerHTML += `${contador}  par <br>`
+            } else if(contador % 2 == 1 ){
+                div_exibir.innerHTML += `${contador}  impar <br>` 
+            } else if (contador % 5 == 5) {
+                div_exibir.innerHTML+= `${contador}divisivel por 5`
+            }
+            contador++
+        }
+    }
+</script>

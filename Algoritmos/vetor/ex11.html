@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o valor do produto:
+    <input type="text" id="ipt_produto">
+
+    <button onclick="cadastrar()">
+        Cadastrar
+    </button>
+
+    <button onclick="atualizar()">
+        Atualizar Estoque
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    listaProduto = [];
+    valorTotal = 0;
+    function cadastrar() {
+        var produto = Number(ipt_produto.value);
+        listaProduto.push(produto);
+        valorTotal += Number(produto);
+    }
+    function atualizar(){
+        for (var i = 0; i < listaProduto.length; i++) {
+            console.log("Preço " + (i+1) + ": R$"+listaProduto[i]);
+            }
+        div_exibir.innerHTML = `
+        Você tem ${listaProduto.length} produtos cadastrados em estoque 
+        <br>
+        Seu estoque vale R$${valorTotal}
+   `
+    }
+</script>

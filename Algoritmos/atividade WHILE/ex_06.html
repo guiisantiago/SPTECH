@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    Informe a pessoa que você mais ama:
+    <input id="i_amor">
+
+    Quanto você ama ela:
+    <input id="i_quantidade">
+
+    <button onclick="expressar()">
+        Expressar Amor
+    </button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    function expressar() {
+        var love = i_amor.value;
+        var quant = Number( i_quantidade.value);
+        var contador = 1
+        div_exibir.innerHTML = "";
+        while(contador <= quant) {
+            div_exibir.innerHTML += `${contador}- ${love}, eu te amo! Sempre lembre disso! <br>`
+            contador += 1
+        } 
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <button onclick="realizar()">
+        S2 Pares
+    </button>
+
+    <div id="div_numero">
+    </div>
+</body>
+</html>
+<script>
+    function realizar() {
+        div_numero.innerHTML = "";
+        var numero = 0;
+        while(numero <= 100) {
+            div_numero.innerHTML += `${numero} <br>`
+            numero += 2}
+    }
+</script>

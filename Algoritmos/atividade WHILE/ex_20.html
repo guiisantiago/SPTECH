@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 20</title>
+</head>
+<body>
+    Informe quantos depósitos você fez:
+    <input id="input_deposito">
+
+    Informe cada depósitos:
+    <input id="input_cada">
+
+    <button onclick="executar()">
+        Acompanhar grana
+    </button>
+
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function executar() {
+        var qnt = Number(input_deposito.value);
+        var cadadep = Number(input_cada.value);
+         contador = 1;
+
+        while(contador <= qnt) {
+            div_exibir.innerHTML += `${contador} Mês: R$${contador * cadadep} <br>`;
+            contador++;
+        }
+    }
+</script>

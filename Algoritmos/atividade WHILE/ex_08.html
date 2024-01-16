@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    Informe um número:
+    <input id="input_number">
+
+    <button onclick="executar()">
+        Viva o 7!
+    </button>
+
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    function executar() {
+        var numero = Number(input_number.value);
+        var contador = 0
+        mostrar.innerHTML = "" 
+        while(contador <= numero ) {
+            mostrar.innerHTML += `${contador} <br> `
+            contador += 7
+        }
+    }
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON - JS Object Notation</title>
+</head>
+<body>
+    
+    
+    <button onclick="exibir()">
+        Exibir Dados
+    </button>
+
+    <div id="div_info">
+        Olá, Nome! <br>
+        Sua idade é XY <br>
+        Você mora na rua XXXXXX no número YYY
+    </div>
+</body>
+</html>
+<script>
+    function exibir() {
+        var nome = "Guilherme";
+        var idade = 18;
+        var rua = "Haddock Lobo"
+        var numero = 595;
+
+        div_info.innerHTML = `
+        Olá, Nome ${nome}! <br>
+        Sua idade é ${idade} <br>
+        Você mora na rua ${rua} no número ${numero}`
+    }
+</script>

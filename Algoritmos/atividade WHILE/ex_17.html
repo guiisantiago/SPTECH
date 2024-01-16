@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 17</title>
+</head>
+
+<body>
+    Quantas pessoas vão entrar no carro?
+    <input type="number" id="input_pessoas"><br>
+
+    Capacidade:
+    <input type="text" id="i_capacidade">
+
+    <button onclick="mostrar()">
+        #Partiu Carona
+    </button><br>
+
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var qtd = Number(input_pessoas.value);
+        var capaci = Number(i_capacidade.value);
+        var contador = 1;
+        div_mensagem.innerHTML = "";
+
+        while (contador <= qtd) {
+            if (contador <= capaci) {
+                if (contador == 1) {
+                    div_mensagem.innerHTML += `Entrou o passageiro ${contador}° (que é o(a) motorista)<br>`
+                } else {
+                    div_mensagem.innerHTML += `Entrou o passageiro ${contador}°<br>`
+                }
+            } else {
+                div_mensagem.innerHTML += `O ${contador}° passageiro terá que esperar!<br>`
+            }
+            contador += 1;
+
+        }
+    }
+</script>

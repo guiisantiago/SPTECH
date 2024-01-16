@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tênis Clube</title>
+    <style>
+      body {
+        display: flex;
+        align-items: stretch;
+      }
+
+      body div:first-child,
+      body div:nth-of-type(2) {
+        padding: 8px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+      }
+
+      body div:nth-of-type(2) {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="input_qtd_partidas"> Rodadas máximas: </label>
+      <input id="input_qtd_partidas" /><br />
+
+
+      <button onclick="realizar_partida()">Realizar partida</button>
+
+      <h3>Informe as partidas que deseja relembrar</h3>
+
+      <label for="input_inicio_intervalo">Início:</label>
+      <input id="input_inicio_intervalo" />
+      <label for="input_fim_intervalo">Fim:</label>
+      <input id="input_fim_intervalo" />
+
+      <button onclick="relembrar_partidas()">Relembrar</button>
+    </div>
+    <div>
+      <h3>Painel</h3>
+      <div id="div_painel"></div>
+    </div>
+  </body>
+</html>
+<script>
+  const partidas = [];
+  
+  function realizar_partida() {
+    const MAXqtdPartidas = input_qtd_partidas.value;
+    const Partida = {
+      numeroPartida: partidas.length + 1,
+      j1: (Math.random() *8 +2).toFixed(0),
+      j2:(Math.random() *8 +2).toFixed(0),
+    };
+    if (MAXqtdPartidas > 0) {
+      
+      if (MAXqtdPartidas > partidas.length) {
+        partidas.push(Partida);
+        div_painel.innerHTML = ''
+
+        for (var i = 0; i < partidas.length; i++) {
+          div_painel.innerHTML += partidas[i].numeroPartida +'ª Rodada<br>Jogador 1: '+partidas[i].j1+'<br>Jogador 2: '+partidas[i].j2+'<br><br>';
+        }
+        
+        div_painel.innerHTML += `Total jogador 1: ${partidas[i].j1}<br>`
+        div_painel.innerHTML += `Total jogador 2: ${partidas[i].j2}<br>`
+      } else {
+        alert("Número de partidas excedido");
+      }
+      console.log(partidas);
+    } else {
+      alert("Número de partidas inválido");
+    }
+  }
+
+  function relembrar_partidas() {
+    const inicio = input_inicio_intervalo.value;
+    const fim = input_fim_intervalo.value;
+    var acumulador = 0;
+    div_painel.innerHTML = '';
+    for (var i = inicio - 1; i <= fim; i++) {
+      const intervalo = partidas[i];
+      if (i >= inicio && i <= fim) {
+        div_painel.innerHTML +=
+      partidas[i-1].numeroPartida +
+      "ª Rodada<br>Jogador 1: " +
+      partidas[i].j1 +
+      "<br>Jogador 2: " +
+      partidas[i].j2 +
+      "<br>";
+      }
+    }
+    
+  }
+</script>

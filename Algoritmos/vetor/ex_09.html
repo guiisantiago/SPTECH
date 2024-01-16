@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe seus projetos:
+    <input type="text" id="ipt_projeto">
+
+    <button onclick="registrar()">
+        Registrar projeto
+    </button>
+
+    <button onclick="executar()">
+        Mostrar Projetos
+    </button>
+    <div id="div_mostrar">
+    </div>
+</body>
+</html>
+<script>
+    listaProjetos = [];
+    
+
+    function registrar() {
+        
+        var projeto = ipt_projeto.value;
+        listaProjetos.push(projeto);
+
+        for(i=1; i <= listaProjetos.length; i++) {
+            if(listaProjetos.length <= 4) {
+                div_mostrar.innerHTML = ` Você já fez ${i} projetos. Por isso você é um profissional junior`
+            } else if(listaProjetos.length <=12 ) {
+                div_mostrar.innerHTML = ` Você já fez ${i} projetos. Por isso você é um profissional pleno`
+            } else{
+                div_mostrar.innerHTML = ` Você já fez ${i} projetos. Por isso você é um profissional Sênior`
+            }
+        }
+
+
+    }
+
+
+    function executar() {
+        for(i =  listaProjetos.length-1; i >= 0; i--){
+        div_mostrar.innerHTML += `<br>${listaProjetos[i]} <br>`
+    }
+
+
+    }
+
+</script>

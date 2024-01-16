@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_frase">
+
+    <button onclick="analisar()">Analisar</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function analisar() {
+        var frase = input_frase.value
+
+        for(var contador = 0; contador < frase.length; contador++)
+        {
+        div_mensagem.innerHTML += `${frase [contador]} - ${contador}<br> `
+    }
+}
+    
+    
+    
+    
+    
+    /*alert(texto[texto.length - 1])
+    alert(texto[2]);*/
+</script>

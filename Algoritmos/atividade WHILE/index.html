@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+</head>
+
+<body>
+    Quantidade de chackra: <br>
+    <input type="text" id="input_quantchackra"> <br>
+
+    Quantidade de clones desejada:<br>
+    <input type="text" id="input_quantclone"><br>
+
+    Quantidade de clones por linha:<br>
+    <input type="text" id="input_quantlinhas"><br>
+
+    <button onclick="executar()">
+        Criar clone
+    </button>
+
+    <div id="div_exibir">
+    </div>
+
+</body>
+
+</html>
+<script>
+    function executar() {
+        var qntchackra = Number(input_quantchackra.value);
+        var qntclones = Number(input_quantclone.value);
+        var qntlinhas = Number(input_quantlinhas.value);
+        var sobra = qntchackra - qntclones * 20;
+        var percentual  = sobra /  qntchackra * 100
+        contador = 1;
+        var number = qntclones / qntlinhas;
+        div_exibir.innerHTML = "";
+        if (qntchackra < 20 || qntclones > 250 || qntlinhas <= 0) {
+            alert(`ERRO NA ENTRADA DE DADOS : Energia tem que ser entre 20 e 5.000. Quantidade de Clones tem que ser entre 0 e 250. Quantidade de Clones por linha tem que ser maior que 0`)
+        } else if (qntchackra >= qntclones * 20) {
+            while (contador <= qntclones) {
+                div_exibir.innerHTML += `<img src="naruto.jpg" alt="" style="width: 100px;">`
+                contador++}
+                div_exibir.innerHTML += ` <br>ANÁLISE DA GERAÇÃO DE CLONES<br>
+                <br>Chakra Inicial: ${qntchackra} <br> 
+                Quantidade de Clones: ${qntclones}<br> 
+                Sobra de Chakra: ${sobra} <br>`;
+
+            if (sobra > 1000 || qntclones > 50 && percentual >= 20/100) {
+            div_exibir.innerHTML += `<br>PROVAVELMENTE VOCÊ VAI GANHAR`
+        }  
+            else if(sobra > 500 || qntclones < 20 &&  qntclones < 50 && percentual >= 10/100){
+            div_exibir.innerHTML += `<br>A LUTA VAI SER MUITO BOA`
+        } 
+            else {
+            div_exibir.innerHTML += `<br>TORÇA PARA O ADVERSÁRIO SER FRAQUINHO`
+        }
+        } 
+            else if (qntchackra < qntclones * 20) {
+            alert(`o Chacrka tem que ser maior ou igual a quantidade de clones multiplicado por 20.`)
+        }
+
+                
+    }
+
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 14</title>
+  </head>
+  <body>
+    <h1>Cadastro de Produtos</h1>
+    Nome: <input type="text" id="input_nome" /> <br />
+    Preço: R$ <input type="number" id="input_preco" /><br /><br />
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarEstoque()">Atualizar Estoque</button>
+    <div id="msg"></div>
+  </body>
+</html>
+<script>
+  var produtos = [];
+  var preços = [];
+  function cadastrar() {
+    var nomeAtual = input_nome.value;
+    var precoAtual = Number(input_preco.value);
+
+    produtos.push(nomeAtual);
+    preços.push(precoAtual);
+  }
+
+  function atualizarEstoque(){
+
+    for(var i=0; i<produtos.length; i++){
+        msg.innerHTML += `
+    Produto ${i + 1}: ${produtos[i]} <br>
+   Preço de compra: R$${preços[i]}. Vender por R$${Number(preços[i]) + Number(preços[i]*0.25)} <br>
+    <br>
+    <br>`;
+    }
+  }
+</script>

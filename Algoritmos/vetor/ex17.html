@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 17</title>
+  </head>
+  <body>
+    <div id="div_registro" style="display: block;">
+      <h1>Analise de performance de Alunos - Registro</h1>
+      Entre com o Nome do aluno: <input type="text" id="ipt_nome" /> <br />
+      Entre com a Nota do aluno: <input type="number" id="ipt_nota" /> <br />
+      <button onclick="registrar()">Registrar</button>
+      <button onclick="analisar()">Analisar</button>
+    </div>
+    <div id="div_pesquisar" style="display: none;">
+      <h1>Analise de performance de Alunos - Pesquisa</h1>
+      Entre com o intervalo de notas:
+      <input type="number" placeholder="De" id="ipt_inicio" />
+      <input type="number" placeholder="Até" id="ipt_final" /> <br />
+      <button onclick="pesquisarAlunos()">Pesquisar</button>
+    </div>
+    <!-- <div id="div_erro" style="color: red;"></div> -->
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  var alunos = ['maria', 'mario', 'marcio', 'monica'];
+  var notas = ['10', '6', '8', '4'];
+  var alunosListados = [];
+
+  function registrar() {
+    var nomeAluno = ipt_nome.value;
+    var notaAluno = Number(ipt_nota.value);
+
+    if (nomeAluno == "" || notaAluno == "" || notaAluno < 0 || notaAluno > 10) {
+      div_mensagem.innerHTML = "PARA DE SER BURRO, INSIRA UM VALOR VALIDO";
+    } else {
+      div_mensagem.innerHTML = "";
+      alunos.push(nomeAluno);
+      notas.push(notaAluno);
+    }
+
+    for (var i = notas.length - 1; i >= 0; i--) {
+      div_mensagem.innerHTML += alunos[i] + "," + notas[i] + "<br>";
+    }
+  }
+
+  function analisar() {
+    div_mensagem.innerHTML = "";
+    div_pesquisar.style.display = 'block';
+    div_registro.style.display = 'none';
+  }
+  function pesquisarAlunos() {
+    var inicio = Number(ipt_inicio.value);
+    var final = Number(ipt_final.value);
+    var totalListados = 0;
+    var maiorNota = 0;
+    var menorNota = 10;
+
+    if (inicio < 0 || inicio > 10 || final < 0 || final > 10) {
+      div_mensagem = "PARA DE SER BURRO, INSIRA UM VALOR VALIDO";
+    } else {
+      for (var i = 0; i < alunos.length; i++) {
+        if (inicio <= notas[i] && notas[i] <= final) {
+          div_mensagem.innerHTML += `O aluno ${alunos[i]} ficou com a nota ${notas[i]} <br>`;
+          alunosListados.push(alunos[i]);
+          totalListados+=Number(notas[i]);
+          if(Number(notas[i]) > maiorNota){
+            maiorNota = notas[i];
+          }
+          if(Number(notas[i]) < menorNota){
+            menorNota = notas[i];
+          }
+          
+        }
+      }
+      div_mensagem.innerHTML += `
+      Total de alunos registrados: ${alunos.length}<br>
+
+      Total de alunos listado: ${alunosListados.length} (${alunosListados}) <br>
+
+      Maior Nota: ${maiorNota} <br>
+
+      Menor Nota: ${menorNota} <br>
+
+      Média da Nota: ${totalListados/alunosListados.length} <br>
+      `;
+    }
+  }
+</script>

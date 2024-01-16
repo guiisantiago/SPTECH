@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 18</title>
+</head>
+<body>
+    Informe quantas Coca-Cola você já consumiu:
+    <input type="text" id="input_quantidade">
+
+    <button onclick="executar()">
+        Ver quantidade
+    </button>
+
+    <div id="exibir">
+    </div>
+
+    <img src="" alt="">
+</body>
+</html>
+<script>
+    function executar() {
+        var qnt = Number(input_quantidade.value);
+        contador = 1;
+        var imagem = `<img  src="https://ibassets.com.br/ib.item.image.big/b-f957f5c8fa4145d9974b22facf29fad4.jpg" style="width: 10%;" alt="">`
+        while (contador <= qnt) {
+            exibir.innerHTML += `${imagem}`
+        contador++
+    }
+}
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 13</title>
+  </head>
+  <body>
+    <h1>Campanha do Time X</h1>
+    Jogo: <span id="jogo">1</span>
+    <select id="combo">
+      <option value="3">Vitoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <button onclick="cadastrar()">Cadastrar</button> <br />
+    Indique qual jogo deseja saber o resultado:
+    <input type="number" id="input_pesquisa" />
+    <button onclick="pesquisa()">Pesquisar</button>
+    <div id="exibir"></div>
+    <div id="resultados"></div>
+  </body>
+</html>
+<script>
+  var pontos = [];
+  var total = 0;
+  var vitorias = 0;
+  var derrotas = 0;
+  var empates = 0;
+
+  function cadastrar() {
+    var resultadoJogo = Number(combo.value);
+
+    if (resultadoJogo == 3) vitorias++;
+    else if (resultadoJogo == 1) empates++;
+    else derrotas++;
+
+    jogo.innerHTML = pontos.length + 2;
+
+    pontos.push(resultadoJogo);
+
+    total += resultadoJogo;
+
+    exibir.innerHTML = `
+    <h3> O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas <br>
+
+      Pontuação total: ${total}pontos <br>
+
+      Aproveitamento: ${((total / (pontos.length * 3)) * 100).toFixed(2)}%;
+      </h3>
+    `;
+  }
+  function pesquisa() {
+    var indice = Number(input_pesquisa.value - 1);
+    var resultaJogo = "Derrota";
+
+    if (indice+1 <= pontos.length) {
+      if (pontos[indice] == 3) resultaJogo = "Vitoria";
+      else if (pontos[indice] == 1) resultaJogo = "Empate";
+
+      resultados.innerHTML = ` <h3> O resultado do jogo ${
+        indice + 1
+      } foi ${resultaJogo} </h3>`;
+    } else {
+        resultados.innerHTML = 'Voce ainda nao jogou';
+    }
+  }
+</script>

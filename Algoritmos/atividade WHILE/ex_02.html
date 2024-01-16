@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <button onclick="mostrar()">
+        Diga algo sobre a matéria de Algoritmos
+    </button>
+
+    <div id="div_frase"></div>
+</body>
+</html>
+<script>
+    function mostrar() {
+        div_frase.innerHTML = ""
+        var clique = 1;
+        while(clique <= 7) {
+            div_frase.innerHTML += `Gosto muito!!! <br>`
+            clique += 1
+        }
+    }
+</script>

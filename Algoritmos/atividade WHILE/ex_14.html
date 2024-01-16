@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe sua idade:
+    <input onkeyup="contagem()" id="i_idade">
+
+    <button onclick="executar()">
+        Aparecer
+    </button>
+
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function executar() {
+        var idade = Number(i_idade.value)
+        var contador = 0;
+        exibir.innerHTML=""
+        
+        while (contador<=idade){
+            if (contador<= 4) {
+                exibir.innerHTML+=`${contador} anos( Primeira Infância) <br>`
+            }else if(contador<= 6){
+                exibir.innerHTML+=`${contador} anos (Pre escolar) <br>`
+            }else if(contador<= 10){
+                exibir.innerHTML+=`${contador} anos (Segunda Infância) <br>`
+           }else if(contador<= 18){
+                exibir.innerHTML+=`${contador} anos (Adolescência) <br>`
+           }else if(contador<= 50){
+                exibir.innerHTML+=`${contador} anos (Adulto) <br>`
+           }else if(contador<= 100){
+                exibir.innerHTML+=`${contador}  anos (Melhor idade) <br>`
+           }else{
+                exibir.innerHTML+=`${contador} anos (Matusalém) <br>`
+           }
+            contador++;     
+    }
+}
+</script>

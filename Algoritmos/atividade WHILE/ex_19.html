@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 19</title>
+</head>
+<body>
+    Quantas xícaras de café com leite já consumiu:
+    <input  id="input_qtn">
+
+    <button onclick="executar()">
+        Ver quantidade 
+    </button>
+    <div id="exibir">
+    </div>  
+
+</body>
+</html>
+<script>
+    function executar() {
+        var quant = Number(input_qtn.value);
+        contador = 1;
+        var imagem = `<img src="https://media.istockphoto.com/id/959567952/pt/foto/milk-powder-in-a-measuring-spoon.jpg?s=1024x1024&w=is&k=20&c=jVu45FVacjNBXzjvb8y3M7UR56qILtCzOXkebW6Uj8k=" style="width: 5%; " alt="">`;
+        var cafe = `<img src="https://img.freepik.com/fotos-premium/cafe-em-po-na-colher-de-madeira-em-branco_253984-1697.jpg?w=900" style="width: 10%;" alt="">`;
+        var colhercafe = quant * 2
+
+        while (contador <= quant) {
+            exibir.innerHTML += `${imagem}`
+            contador++
+        }
+            contador = 1
+            while(contador <= colhercafe) {
+                exibir.innerHTML += `${cafe}`
+                contador++
+            }
+    }
+</script>

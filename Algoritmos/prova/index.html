@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--a) O usuário informa:
+    a.1) Nome do astronauta;
+    a.2) Quantidade de dias;
+    a.3) Quantidade de horas;
+    a.4) Quantidade de minutos;
+-->
+
+    Digite seu nome:
+    <input type="text" id="ipt_nome">
+
+    Quantidade de dias:
+    <input type="text" id="ipt_dias">
+
+    Quantidade de horas:
+    <input type="text" id="ipt_horas">
+
+    Quantidade de minutos:
+    <input type="text" id="ipt_minutos">
+
+    <button onclick="executar()">
+        Registrar Viagem
+    </button>
+
+    <button onclick="verificar()">
+        Relatório de viagens
+    </button>
+    
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    listaViagem = [];
+    listaNome = [];
+    listaDias = [];
+    listaHoras = [];
+    listaMinutos = [];
+
+    function executar() {
+        var nome = ipt_nome.value ;
+        var dias = ipt_dias.value;
+        var horas = ipt_horas.value;
+        var minutos = ipt_minutos.value;
+
+        if (dias <= 0 && horas <= 0 && minutos <=0){
+            alert(`Informe um tempo de viagem válido!`);
+        } else{
+            listaViagem.push(nome, dias, horas, minutos);
+        }
+      }   
+    
+    function verificar() {
+        for(contador = 0; contador < listaViagem.length; contador++){
+            div_exibir.innerHTML += listaViagem[i+1];}
+        
+    }
+   
+    
+</script>
+
+<!--listaNome.push(nome);
+            listaDias.push(dias);
+            listaHoras.push(horas);
+            listaMinutos.push(minutos);

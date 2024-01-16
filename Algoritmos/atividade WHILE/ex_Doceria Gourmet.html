@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Macarons<br>
+    <input id="input_macarons"><br>
+    Brigadeiros <br>
+    <input id="input_brigadeiros"><br>
+    Cupcakes <br>
+    <input id="input_cupcakes"><br>
+    Cheesecakes<br>
+    <input id="input_cheesecakes"><br>
+
+    Valor Macarons:<br>
+    <input id="input_vlmacarons"><br>
+    Valor Brigadeiros:<br>
+    <input id="input_vlbrigadeiros"><br>
+    Valor Cupcakes:<br>
+    <input id="input_vlcupcakes"><br>
+    Valor Cheesecakes:<br>
+    <input id="input_vlcheesecakes"><br>
+
+    <button onclick="executar()">
+        Verifificar vendas
+    </button>
+
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+<script>
+    function executar() {
+            var macaronss = Number(input_macarons.value);
+            var brigadeiros = Number(input_brigadeiros.value);
+            var cupcakes = Number(input_cupcakes.value);
+            var cheesecakes = Number(input_cheesecakes.value);
+            var valormacaronss = Number(input_vlmacarons.value);
+            var valorbrigadeiros = Number(input_vlbrigadeiros.value);
+            var valorcupcakes = Number(input_vlcupcakes.value);
+            var valorcheesecakes = Number(input_vlcheesecakes.value);
+            var valorfinal = ((valormacaronss * macaronss) + (valorbrigadeiros * brigadeiros) + (valorcupcakes * valorcupcakes) + valorcheesecakes * cheesecakes);
+            var precofinal = 0;
+            venda =1;
+            contador = 1;
+            div_exibir.innerHTML = "";
+            if (macaronss < 0 || brigadeiros < 0 || cupcakes < 0 || cheesecakes < 0) {
+            alert(`Exiba um valor válido`)
+        } else {
+            while(contador <= macaronss) {
+                precofinal += macaronss
+
+                div_exibir.innerHTML += `Venda ${venda} | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv9S0gQTiBihkHZOvom3onO02WTXmYwf_djA&usqp=CAU" style="width: 100px;" alt="">|R$${valormacaronss}<br>`
+
+                venda++
+                contador++
+            }
+            contador = 1
+            while(contador <=brigadeiros) {
+                precofinal += brigadeiros
+
+                div_exibir.innerHTML += `Venda ${venda}| <img src="https://as2.ftcdn.net/v2/jpg/01/79/69/77/1000_F_179697714_3qoAmMCdrFyODihzEFD72zXADjiYnNTg.jpg" style="width: 100px;" alt="">| R$${valorbrigadeiros}<br>`
+
+                venda++
+                contador++
+            }contador = 1
+            
+            while(contador <=cupcakes) {
+                precofinal += cupcakes
+
+                div_exibir.innerHTML += `Venda ${venda} | <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/124/083/products/cupcakes-cupcakedecorado1-4a78e9cedf0a5c783816139237197788-480-0.jpg" style="width: 100px;" alt="">|R$${valorcupcakes}<br>`
+
+                venda++
+                contador++
+            }
+            
+            contador = 1
+
+            while(contador <=cheesecakes) {
+                precofinal += cheesecakes
+
+                div_exibir.innerHTML += `Venda ${venda} | <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmINscfm3x1FFohrWKigDr8SdxfbVMmpRkhK0N1Jq5h-I7_z4fshn-p-OO0-virxx-zP6w3z46GIwA4fbssvb5b_V5VvPytLYjgX3PZK3KB6AWkd2zxcLoE-XlDr8J7lACXf-H0eZDzndWiZ8eTKCYMnbqFRqiDOVGJ2fnTBHMqN2Sct65vQIXo0CK/w1200/cheesecake-de-ricota-com-chocolate.jpg" style="width: 100px;" alt="">|R$${valorcheesecakes}<br>`
+
+                venda++
+                contador++
+            }
+
+            div_exibir.innerHTML += `Com a quantidade de ${macaronss}Macarons,${brigadeiros}Brigadeiros,${cupcakes}Cupcakes e ${cheesecakes}Cheesecakes, a venda totalizará R$${valorfinal}`
+
+
+
+        }
+    }
+</script>

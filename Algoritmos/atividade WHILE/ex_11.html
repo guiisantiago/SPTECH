@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+<body>
+    Informe quantas voltas o carro dará:
+    <input id="i_voltas">
+
+    <button onclick="executar()">
+        Iniciar corrida
+    </button>
+
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    function executar() {
+        var voltas = Number(i_voltas.value);
+        var contador = 1
+        mostrar.innerHTML = "";
+
+        while(contador <= voltas) {
+            mostrar.innerHTML += `Carro dando a ${contador} volta <br>`
+            contador += 1
+        } mostrar.innerHTML += `Corrida finalizada!`
+
+    }
+</script>

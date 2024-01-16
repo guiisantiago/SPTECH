@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino</title>
+</head>
+<body>
+    
+    <div id="mostraValor" class="telaChat">
+        <span class="mensagemChat">Olá, <br />Qual o nome?</span>
+        <br />
+        <input
+            type="text"
+            id="input_nome"
+            class="inputChat"
+            placeholder="Digite seu nome" />
+        <br />
+        <button onclick="funcaonome()" class="btnChat">Continuar</button>
+    </div>
+</body>
+</html>
+<script>
+    function funcaonome() {
+        var nome = input_nome.value
+
+        mostraValor.innerHTML = `Prazer ${nome}`
+    }
+</script>

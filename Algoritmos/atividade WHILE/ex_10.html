@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10 </title>
+</head>
+<body>
+    Informe o mínimo:
+    <input id="i_minimo">
+
+    Informe o máximo:
+    <input id="i_maximo">
+
+    <button onclick="executar()">
+        S2 Pares
+    </button>
+
+    <div id="mostrar"></div>
+</body>
+</html>
+<script>
+    function executar() {
+        var min = Number(i_minimo.value)
+        var max = Number(i_maximo.value)
+        
+        mostrar.innerHTML = "";
+        
+        while(min <= max) {
+            if (min % 2 == 0) {
+                mostrar.innerHTML += `${min} <br>`
+            }
+        min += 1
+        }
+    }
+</script>

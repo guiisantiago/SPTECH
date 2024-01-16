@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira quantidade de energia consumida em Kwh:
+        <input id="input_qntdener" type="number"> <br>
+    
+    Insira bandeira tarifária da energia:
+        <input id="input_bandeira"> <br>
+    
+    Insira volume de água consumido em litros:
+        <input id="input_volumeagua" type="number"> <br>
+    
+    Insira quantidade de vazamentos de água na casa:
+        <input id="input_qntdvaza" type="number"> <br>
+    
+    Insira volume de gás consumido em litros:
+        <input id="input_volumegas" type="number"> <br>
+
+    Insira valor base do plano de internet:
+        <input id="input_valornet" type="number"> <br>
+
+    Insira se tem uma linha telefônica:
+        <input id="input_linha" type="text"> 
+
+    <button onclick="calcular()">Calcular Despesas Fixas</button>
+
+    <div id="div_exibir">
+    </div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var aa = Number(input_qntdener.value);
+        var bb = input_bandeira.value;
+        var cc = Number (aa * 0.75);
+        var cc1 = Number (aa * 0.90);
+        var cc2 = Number (aa * 1.00);
+        var dd = Number (input_volumeagua.value);
+        var ee = Number(input_qntdvaza.value)
+        var ff = Number((dd * 3.50) + (ee * 10));
+        var gg = Number(input_volumegas.value);
+        var hh = Number(gg * 2.50);
+        var ii = Number(input_valornet);
+        var jj = Number(ii + ii * 25 / 100);
+        var kk = Number(cc + ff + hh + jj);
+        var kk1 = Number(cc1 + ff + hh + jj);
+        var kk2 = Number(cc2 + ff + hh + jj);
+        
+
+        if (bb == "verde") {
+            
+            div_exibir.innerHTML = `
+
+                Com o consumo de ${aa} kWh na bandeira ${bb}, a conta de energia totaliza R$ ${cc}.
+
+                Com o consumo de ${dd} litros de água contendo ${ee} vazamentos, a conta de água totaliza R$ ${ff}.
+
+                Com o consumo de ${gg} litros de gás, a conta de gás totaliza R$ ${hh}.
+
+                Com um valor base de R$ ${ii} no plano de internet , a conta de internet/telefone totaliza R$ ${jj}.
+
+                Gasto total de despesas mensal: R$ ${kk}.`;
+        }
+
+        if (bb == "amarelo") {
+            
+            div_exibir.innerHTML = `
+    
+                Com o consumo de ${aa} kWh na bandeira ${bb}, a conta de energia totaliza R$ ${cc1}.
+    
+                Com o consumo de ${dd} litros de água contendo ${ee} vazamentos, a conta de água totaliza R$ ${ff}.
+    
+                Com o consumo de ${gg} litros de gás, a conta de gás totaliza R$ ${hh}.
+    
+                Com um valor base de R$ ${ii} no plano de internet , a conta de internet/telefone totaliza R$ ${jj}.
+    
+                Gasto total de despesas mensal: R$ ${kk1}.`;
+            }
+        
+        if (bb == "vermelho") {      
+            
+            div_exibir.innerHTML = `
+    
+                Com o consumo de ${aa} kWh na bandeira ${bb}, a conta de energia totaliza R$ ${cc2}.
+    
+                Com o consumo de ${dd} litros de água contendo ${ee} vazamentos, a conta de água totaliza R$ ${ff}.
+    
+                Com o consumo de ${gg} litros de gás, a conta de gás totaliza R$ ${hh}.
+    
+                Com um valor base de R$ ${ii} no plano de internet , a conta de internet/telefone totaliza R$ ${jj}.
+    
+                Gasto total de despesas mensal: R$ ${kk2}.`;
+            }
+
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+</script>

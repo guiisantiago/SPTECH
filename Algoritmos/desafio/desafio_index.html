@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=x, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do astronauta: 
+    <input id="input_nome"><br><br>
+    Quantidade de dias: 
+    <input type="number" id="input_dias"><br><br>
+    Quantidade de horas:
+    <input type="number" id="input_horas"><br><br>
+    Quantidade de minutos:
+    <input type="number" id="input_minutos"><br><br>
+    <button onclick="validarInformacoes()">Registrar viagem</button>
+    <button onclick="relatorioViagens()">Relatorio de viagens</button>
+    <div id="mostrar"></div>
+
+</body>
+</html>
+<script>
+    
+    var listaNome = [];
+    var listaDias = [];
+    var listaHoras = [];
+    var listaMinutos = [];
+
+
+
+    function validarInformacoes(){
+        var nome = input_nome.value;
+        var dias = Number(input_dias.value);
+        var horas = Number(input_horas.value);
+        var minutos = Number(input_minutos.value);
+
+        if(nome == ""){
+            alert( `Digite o nome do Astronauta`)
+        }else if(dias <= 0 && horas <= 0  && minutos<=  0 ){
+         alert(`Informe um tempo de viagem válido!`)  
+        }else{
+          listaNome.push(nome.toUpperCase());
+          listaDias.push(dias);
+          listaHoras.push(horas);
+          listaMinutos.push(minutos);
+
+        }
+    }
+
+    function relatorioViagens(){
+
+        var imagem1 = ``;
+
+
+        for(var contador = 0; contador<listaNome.length; contador++){
+            var somaM = listaMinutos[contador] * 49;
+            var somaH = (listaHoras[contador]* 60 ) * 49;
+            var somaD = (listaDias[contador] * 1440)*49;
+            var somaTotal = somaM + somaH + somaD ;
+            var descobrirAno = somaTotal / 525600;
+
+            if(descobrirAno<=13){
+                
+                imagem1= `<img src="bartAte13.png" alt="100px">`
+            }else if(descobrirAno <= 30){
+                imagem1 = `<img src="bartAte30.png" alt="100px">`
+            }else if(descobrirAno <=65){
+                imagem1 = `<img src="bartAte60.png" alt="100px">`
+            }else if(descobrirAno <= 100){
+                imagem1 = `<img src="bartAte100.png" alt="100px">`
+            }else{
+                imagem1 = `<img src="bartAcima100.png" alt="100px">`
+            }
+      
+            mostrar.innerHTML += `Viagem <b>${contador +1}:</b><br>
+            Austronauta <b>${listaNome[contador]}</b> ficou fora por pelo menos <b>${parseInt(descobrirAno)} </b> anos no tempo da Terra.<br>
+            A criança que nasceu quando ele saiu provavelmente está assim<br>
+            ${imagem1}<br><br><br>   
+            `
+        }
+    }
+</script>

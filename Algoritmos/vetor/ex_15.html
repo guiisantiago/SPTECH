@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 15</title>
+  </head>
+  <body>
+    <h1>Cadastro de Produtos</h1>
+    Nome: <input type="text" id="ipt_nome" /> <br />
+    Preço: R$ <input type="number" id="ipt_preco" /><br /><br />
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarEstoque()">Atualizar Estoque</button>
+    <div id="msg"></div>
+    <div id="relatorio"></div>
+  </body>
+</html>
+<script>
+  var produtos = [];
+  var preços = [];
+  var posicaoMaisCaro = 0;
+  var posicaoMaisBarato = 0;
+  var total = 0;
+  var mediaTotal = 0;
+  function cadastrar() {
+    var nomeAtual = ipt_nome.value;
+    var precoAtual = Number(ipt_preco.value);
+
+    produtos.push(nomeAtual);
+    preços.push(precoAtual);
+
+    for (var i = 0; i < preços.length; i++) {
+      if(preços[i]>preços[posicaoMaisCaro]){
+        posicaoMaisCaro = i;
+      }
+      if(preços[i]<preços[posicaoMaisBarato]){
+        posicaoMaisBarato = i;
+        }
+    }
+    total += precoAtual;
+    media = total / preços.length;
+  }
+  function atualizarEstoque() {
+    msg.innerHTML = "";
+    for (var i = 0; i < produtos.length; i++) {
+      msg.innerHTML += `
+    Produto ${i + 1}: ${produtos[i]} <br>
+   Preço de compra: R$${preços[i]}. Vender por R$${
+        Number(preços[i]) + Number(preços[i] * 0.25)
+      } <br>
+    <br>
+    <br>`;
+    }
+    relatorio.innerHTML = `
+    O produto mais caro é o ${produtos[posicaoMaisCaro]}, custando ${preços[posicaoMaisCaro]}.<br>
+    O produto mais barato é o ${produtos[posicaoMaisBarato]}, custando ${preços[posicaoMaisBarato]}.<br>
+    A média dos preços do estoque é R$${media}<br>
+    Total a ser pago no final do mês: R$${total}<br>
+    `;
+  }
+</script>
+<!-- 
+    a) Tenha um campo "Nome do produto" e outro "Preço de compra";
+
+b) Tenha um botão "Cadastrar". Ao clicar nele, o nome e preço ficam cadastrados em algum lugar, por enquanto invisível ao usuário 
+
+c) Tenha um botão "Relatório de estoque". Ao clicar nele, deve aparecer uma listagem dos produtos cadastrados com seu valor para venda, como no exemplo a seguir: 
+
+
+ -->

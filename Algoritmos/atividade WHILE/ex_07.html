@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    Informe um número:
+    <input id="input_number">
+
+    <button onclick="mostrar()">
+        Adoro múltiplos de 5
+    </button>
+
+    <div id="exibir">
+    </div>
+</body>
+</html>
+<script>
+    function mostrar() {
+        var numero = Number(input_number.value);
+        var contador = 0
+        exibir.innerHTML = ""
+        while(contador <= numero) {
+            exibir.innerHTML += `${contador}<br>`
+            contador += 5
+        }
+    }
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+
+<body>
+    Infome a tabuada que gostaria de ver:
+    <input id="i_primeirovalor">
+
+    Informe até que tabuada deve mostrar:
+    <input id="i_segundovalor">
+
+    <button onclick="executar()">
+        Ver tabuada
+    </button>
+    <div id="exibir">
+    </div>
+</body>
+
+</html>
+<script>
+    function executar() {
+        var first = Number(i_primeirovalor.value);
+        var second = Number(i_segundovalor.value);
+        var contador = 1
+
+        exibir.innerHTML = "";
+
+        while (contador <= second) {
+
+            if (contador % 2 == 0) {
+                exibir.innerHTML += `
+                <span style="color: blue;">
+                    ${first} x ${contador} = ${first * contador} <br> 
+                </span>`
+            } else {
+                exibir.innerHTML += `
+                <span style="color: red;">
+                ${first} x ${contador} = ${first * contador} <br>
+                </span>`
+            }
+            contador++
+        }
+    }
+</script>

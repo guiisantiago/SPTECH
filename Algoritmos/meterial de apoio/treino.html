@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<div id="mostraValor" class="telaChat">
+			<span class="mensagemChat">Olá, <br />Qual o nome?</span>
+			<br />
+			<input
+				type="text"
+				id="input_nome"
+				class="inputChat"
+				placeholder="Digite seu nome" />
+			<br />
+			<button onclick="funcaonome()" class="btnChat">Continuar</button>
+		</div>
+	</body>
+</html>
+
+<script>
+	var nome;
+	var empresa;
+	var qntEstantes;
+	var rackPorEstante;
+	var medidaRack;
+	var laminasPorRack;
+	var area;
+
+	function funcaonome() {
+		nome = input_nome.value;
+
+		mostraValor.innerHTML = `<span class="mensagemChat">Muito prazer, ${nome}! <br />Em qual empresa você trabalha?</span>
+			<br />
+			<input type="text" id="input_empresa" class="inputChat"/>
+			<br />
+			<button onclick="funcaoempresa()" class="btnChat">Continuar</button>`;
+	}
+	function funcaoempresa() {
+		empresa = input_empresa.value;
+
+		mostraValor.innerHTML = `<span
+				 class="mensagemChat">Uau! Essa empresa é bem grande ne?! <br />Mas que tal melhorarmos os
+				processos?</span
+			>
+			<br />
+			<br />
+			<div class="divBtn">
+				<button onclick="funcaoMelhorarSim()" class="btnChat">Sim</button>
+			<button onclick="funcaoMelhorarNao()" class="btnChat">Não</button>
+			</div>`;
+	}
+	function funcaoMelhorarSim() {
+		mostraValor.innerHTML = `<span class="mensagemChat">Quantas estantes voce tem ao todo?</span>
+			<br />
+			<br />
+
+			<input id="input_qtd_estantes" class="inputChat"/>
+			<br />
+			<button onclick="funcaoQtdEstantes()" class="btnChat">Continuar</button>`;
+	}
+	function funcaoQtdEstantes() {
+		qntEstantes = Number(input_qtd_estantes.value);
+		mostraValor.innerHTML = `<span class="mensagemChat">Quantos racks por estante você tem?</span>
+			<br /><br />
+			<input id="input_rack_estante" class="inputChat"/>
+			<br />
+			<button onclick="funcaoRackPorEstante()" class="btnChat">Continuar</button>`;
+	}
+	function funcaoRackPorEstante() {
+		rackPorEstante = Number(input_rack_estante.value);
+		mostraValor.innerHTML = `<span class="mensagemChat">Qual o tamanho médio dos rack's(em U's)?
+			<br>
+			Já estamos quase lá se mantenha firma!</span>
+			<br />
+			<br />
+			<input id="input_media_rack" class="inputChat"/>
+			<br />
+			<button onclick="funcaoMedidaRack()" class="btnChat">Continuar</button>`;
+	}
+	function funcaoMedidaRack() {
+		medidaRack = Number(input_media_rack.value);
+		mostraValor.innerHTML = `<span class="mensagemChat">Aproximadamente quantas laminas(servidores) por rack?</span>
+			<br />
+			<br />
+			<input id="input_laminas_rack" class="inputChat"/>
+			<br />
+			<button onclick="funcaoLaminasPorRack()" class="btnChat">Continuar</button>`;
+	}
+	function funcaoLaminasPorRack() {
+		laminasPorRack = Number(input_laminas_rack.value);
+		mostraValor.innerHTML = `<span class="mensagemChat">Chegamos a ultima pergunta!<br />
+				Qual o tamanho da instalação(m²)</span>
+			<br />
+			<br />
+			<input id="input_tamanho_instalacao" class="inputChat"/>
+			<br />
+			<button onclick="funcaoTamanhoInstalacao()" class="btnChat">Continuar</button>`;
+	}
+	function funcaoTamanhoInstalacao() {
+		area = Number(input_tamanho_instalacao.value);
+
+		//Contas
+		//Quantidade de sensores por rack(Frontal, traseiro, em cima e embaixo)
+		// Medida recebida do rack em U / 4U(definido como padrao por sensor)
+		// * 2 (para considerar lado frontal e traseiro)
+		// + 2 (1 sensor em cima e 1 em baixo)
+		var quantSensorRack = ((medidaRack / 4) * 2 + 2) * rackPorEstante;
+
+		//Sensores por rack(laterais)
+		// Medida recebida do rack em U / 4U(definido como padrao por sensor)
+		// * quantidade de racks por estante
+		// + 1 para igualar o numero de espacos entre racks
+		var quantSensorLateral = (medidaRack / 4) * (rackPorEstante + 1);
+
+		//quantidade de sensor por estante (soma do total de sensores frontal, traseiro, cima, baixo e laterais)
+		var quantSensorEstante = quantSensorRack + quantSensorLateral;
+
+		//quantidade de estantes (numero de sensores por estante * numero de estantes)
+		var quantEstante = qntEstantes * quantSensorEstante;
+
+		//Quantidade de sensor no corredor
+		// area fornecida pelo cliente em m² / 4m²(definido como padrao de alcance do sensor)
+		// * quantidade de estantes
+		// + 1 para igualar o numero de espacos entre racks
+		var quantSensorCorredor = (area / 4) * (1 + quantEstante);
+
+		//Valor total dos sensores
+		// soma do total de sensores por estante + total de sensores por corredor
+		var totalSensor = quantEstante + quantSensorCorredor;
+
+		//Valor dos sensores
+		// quantidade total de sensores * o preço de custo do sensor
+		var valorSensor = totalSensor * 20;
+
+		//Quantidade de arduinos
+		// quantidade total de sensores / 2(cada arduino suporte 02 sensores)
+		var quantidadeArduino = totalSensor / 2;
+
+		//Valor dos arduinos
+		// quantidade total de arduinos * o preço de custo do arduino
+		var valorArduino = quantidadeArduino * 100;
+
+		// Nossa porcentagem
+		// custo total de arduinos e sensores * nossa margem de lucro dos sensores e arduinos
+		var valorNosso = (valorArduino + valorSensor) * 2;
+
+		// nosso preco de sensores e arduinos * nossa margem de lucro no projeto
+		var preco = valorNosso * 4;
+
+		mostraValor.innerHTML = `<span class="mensagemChat">
+			Obrigado por cotar conosco!
+			<br/>
+			Para otimizar e aumentar os niveis de segurança no seu Data Center, serão necessários ${totalSensor} sensores de temperatura, ${quantidadeArduino}.
+			O investimento que deverá ser feito para a instalação desses sensores e o desenvolvimento de um dashboard para controle do sistema será de R$${preco}.
+			</span>`;
+	}
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <h1>Quiosque Mirosmar - Controle de vendas</h1>
+    <h2>--------------Abertura do estoque-------------</h2>
+    Entre com quantidade de Água engarrafada no estoque:
+    <input id="i_aguaestoque"> <br>
+
+    <br> Entre com quantidade de Coco fechado no estoque:
+    <input id="i_cocoestoquee">
+
+    <br><button onclick="executar()">
+        Abrir o quiosque
+    </button>
+
+    <h2>-------------Estoque Inicial-------------</h2>
+    <div id="estoque"></div>
+    <h2>--------Registro das Operações</h2>
+
+    <div id="div_exibir">
+    </div>
+
+</body>
+</html>
+<script>
+    function executar() {
+        var agua = Number(i_aguaestoque.value);
+        var coco = Number(i_cocoestoquee.value);
+        
+        if(agua < 100) {
+            div_exibir.innerHTML += `Com essa quantidade de Água engarrafada não dá para abrir o quiosque <br>`;
+        }  
+        else if(coco < 200) {
+            div_exibir.innerHTML += `Com essa quantidade de Coco fechado não dá para abrir o quiosque`
+        }   
+        
+        else {  
+            if(agua >= 100 ) {
+                if(coco >= 200) {
+                    div_estoque.innerHTML += `<br>Água engarrafada : ${agua}<br> Coco fechado: ${coco}<br>`
+                }
+            }
+    }
+}
+</script>

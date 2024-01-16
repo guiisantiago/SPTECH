@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    Número 1: <input id="i_n1"> <br>
+    Número 2: <input id="i_n2"> <br>
+    <button onclick="Multiplicar()">Multiplicar</button> <br>
+    <button onclick="Dividir()">Dividir</button> <br>
+    <button onclick="Subtrair()">Subtrair</button> <br>
+    <button onclick="Somar()">Somar</button> <br>
+</body>
+</html>
+
+<script>
+    
+    function Multiplicar() {
+
+        alert(`
+            O produto entre ${i_n1.value} e ${i_n2.value} resulta
+            em ${(i_n1.value) * (i_n2.value)}
+        `);
+
+        //alert("O produto entre " + i_n1.value + " e " 
+        //+ i_n2.value + " resulta em " + (i_n1.value * i_n2.value) )
+    }
+
+    function Dividir(){
+
+        //alert(`
+        //O produto entre ${i_n1.value} e ${i_n2.value} resulta 
+        //em ${(i_n1.value) / (i_n2.value)}
+        //`);
+
+        alert ("O produto entre " + i_n1.value + " e " 
+        + i_n2.value + " resulta em " + (i_n1.value / i_n2.value) )
+    }
+
+    function Subtrair(){
+        alert ("O produto entre " + i_n1.value + " e "
+        + i_n2.value + " resulta em " + (i_n1.value - i_n2.value) )
+    }   
+
+    function Somar(){
+        alert ("O produto entre " + i_n1.value + " e "
+        + i_n2.value + " resulta em " + (Number (i_n1.value) + Number (i_n2.value)) )       
+    }
+
+</script>

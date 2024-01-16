@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 16</title>
+</head>
+<body>
+    Digite um numero qualquer: <input type="number" id="ipt_numero">
+    <button onclick="exibirNumeros()">Analisar Histórico</button>
+    <div id="div_historico"></div>
+</body>
+</html>
+<script>
+    var numerosDigitados = [];
+    function exibirNumeros(){
+        div_historico.innerHTML='';
+        numerosDigitados.push(Number(ipt_numero.value));
+        var maiorNumero = numerosDigitados[0];
+        var menorNumero = numerosDigitados[0];
+
+        for(var i=0; i<numerosDigitados.length; i++){
+            if(numerosDigitados[i]>maiorNumero) maiorNumero = numerosDigitados[i];
+            if(numerosDigitados[i]<menorNumero) menorNumero = numerosDigitados[i];
+
+            div_historico.innerHTML += `${numerosDigitados[i]} <br>`
+        }
+        div_historico.innerHTML+="Maior: " + maiorNumero; + "<br>"
+        div_historico.innerHTML+="Menor: " + menorNumero;
+    }
+</script>
+<!-- 
+     Tenha um campo "Digite um número qualquer"; 
+
+b) Tenha um botão "Analisar histórico" que ao ser clicado, o número é cadastrado em algum lugar e, em seguida, deve aparecer um histórico dos números cadastrados, bem como o maior e o menor, como no exemplo a seguir: 
+ -->
